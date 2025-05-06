@@ -12,16 +12,10 @@ return new class extends Migration {
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('opening_id');
-            $table->foreign('opening_id')
-                ->references('id')
-                ->on('openings')
-                ->onDelete('cascade');
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->uuid('opening_id');
+            $table->foreign('opening_id')->references('id')->on('openings')->cascadeOnDelete();
             $table->string('status')->default('pending');
             $table->timestamps();
         });

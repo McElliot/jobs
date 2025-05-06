@@ -13,7 +13,7 @@ return new class extends Migration {
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(model: User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->string('position')->nullable();
             $table->string('employer')->nullable();
             $table->string('employment_type')->nullable();

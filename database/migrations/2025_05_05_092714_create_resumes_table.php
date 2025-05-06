@@ -13,7 +13,7 @@ return new class extends Migration {
     {
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(model: User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->text('path')->nullable;
             $table->timestamps();
         });
