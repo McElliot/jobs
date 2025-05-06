@@ -9,4 +9,9 @@ class ProfessionalQualification extends Model
 {
     /** @use HasFactory<\Database\Factories\ProfessionalQualificationFactory> */
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

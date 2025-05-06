@@ -9,4 +9,9 @@ class Experience extends Model
 {
     /** @use HasFactory<\Database\Factories\ExperienceFactory> */
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

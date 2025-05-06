@@ -9,4 +9,11 @@ class Tag extends Model
 {
     /** @use HasFactory<\Database\Factories\TagFactory> */
     use HasFactory;
+
+    protected $fillable = ['name'];
+
+    public function jobs()
+    {
+        return $this->BelongsToMany(Opening::class);
+    }
 }
